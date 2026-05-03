@@ -1,170 +1,65 @@
-# 🚀 API de Gerenciamento de Tarefas
+# 📝 Gerenciador de Tarefas
 
-API RESTful desenvolvida com **ASP.NET Core** para gerenciamento de tarefas, permitindo operações completas de CRUD (Create, Read, Update, Delete).
+Este projeto é uma aplicação full stack para gerenciamento de tarefas, desenvolvida como parte de um desafio técnico.
 
-Este projeto foi construído com foco em boas práticas de desenvolvimento backend e integração com banco de dados relacional.
+## 🚀 Tecnologias utilizadas
 
----
-
-## 🧠 Funcionalidades
-
-✔ Criar tarefas  
-
-✔ Listar todas as tarefas  
-
-✔ Buscar tarefa por ID  
-
-✔ Atualizar tarefa  
-
-✔ Deletar tarefa  
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
+### Backend
 - .NET 8
-
-- ASP.NET Core Web API
-
+- ASP.NET Core
 - Entity Framework Core
+- SQLite
 
-- SQL Server (Docker)
-
-- Swagger (OpenAPI)
-
----
-
-## 🏗️ Arquitetura do Projeto
-
-TaskManagerAPI/
-│
-├── Controllers/    → Endpoints da API
-├── Models/         → Entidades do sistema
-├── Data/           → Contexto do banco de dados (DbContext)
-├── Migrations/     → Controle de versão do banco
-├── Program.cs      → Configuração da aplicação
+### Frontend
+- Angular (Standalone Components)
+- TypeScript
+- HTML/CSS
 
 ---
 
-## 🗄️ Banco de Dados
+## ⚙️ Funcionalidades
 
-O banco utilizado é o **SQL Server**, rodando em container Docker.
+- Criar tarefas
+- Listar tarefas
+- Armazenamento em banco de dados SQLite
+- API REST documentada com Swagger
 
-### 🔥 Executar o SQL Server via Docker:
+---
 
-```bash
+## 🔌 Integração
 
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SuaSenha@123" \
+O frontend consome a API através de requisições HTTP.
 
--p 1433:1433 --name sqlserver \
+---
 
--d mcr.microsoft.com/mssql/server:2022-latest
+## ▶️ Como executar o projeto
 
-⚙️ Configuração
+### Backend
 
-A string de conexão está definida no arquivo:
+bash cd TaskManagerAPI dotnet run 
 
-appsettings.json
-
-"ConnectionStrings": {
-
-  "DefaultConnection": "Server=localhost,1433;Database=TaskManagerDB;User Id=sa;Password=SuaSenha@123;TrustServerCertificate=True;"
-
-▶️ Como executar o projeto
-
-1. Restaurar dependências
-
-dotnet restore
-
-2.Aplicar migrations
-
-dotnet ef database update
-
-3. Executar a aplicação
-
-dotnet run
-
-🌐 Acessar a API
-
-Após rodar o projeto, acesse:
-
+A API estará disponível em:
 http://localhost:5262/swagger
 
-Você poderá testar todos os endpoints diretamente pela interface do Swagger.
+---
 
-⸻
+### Frontend
 
-📌 Exemplos de Endpoints
+bash cd task-manager-frontend ng serve 
 
-Método
+A aplicação estará disponível em:
+http://localhost:4200
 
-Rota
+---
 
-Descrição
+## ⚠️ Observações
 
-GET
+Durante o desenvolvimento, a API foi testada com sucesso via Swagger, retornando corretamente os dados.
 
-/api/Tarefas
+A integração com o frontend foi parcialmente implementada, com consumo da API validado no console.
 
-Lista todas tarefas
+---
 
-GET
+## 📌 Status do projeto
 
-/api/Tarefas/{id}
-
-Busca por ID
-
-POST
-
-/api/Tarefas
-
-Cria nova tarefa
-
-PUT
-
-/api/Tarefas/{id}
-
-Atualiza tarefa
-
-DELETE
-
-/api/Tarefas/{id}
-
-Remove tarefa
-
-📦 Exemplo de JSON
-
-{
-
-  "titulo": "Estudar API",
-
-  "descricao": "Aprender ASP.NET Core",
-
-  "status": "Pendente"
-
-}
-
-💡 Melhorias Futuras
-
-* 🔐 Autenticação com JWT
-* 📄 Paginação de resultados
-* 🔍 Filtro por status
-* 📊 Logs estruturados
-* 🧪 Testes automatizados
-
-⸻
-
-👩‍💻 Autora
-
-Michele Almeida
-
-⸻
-
-⭐ Considerações
-
-Este projeto foi desenvolvido com o objetivo de consolidar conhecimentos em:
-
-* Desenvolvimento de APIs REST
-* Integração com banco de dados
-* Uso de Docker
-* Versionamento com Git
+Em desenvolvimento

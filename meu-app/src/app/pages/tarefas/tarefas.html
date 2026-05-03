@@ -1,0 +1,18 @@
+<h2>Minhas Tarefas</h2>
+
+<div>
+  <input [(ngModel)]="novaTarefa.titulo" placeholder="Título" />
+  <input [(ngModel)]="novaTarefa.descricao" placeholder="Descrição" />
+  <button (click)="criar()">Criar</button>
+</div>
+
+<hr />
+
+<ul>
+  <li *ngFor="let t of tarefas">
+    <b>{{ t.titulo }}</b> - {{ t.status }}
+    <button (click)="deletar(t.id)">Excluir</button>
+  </li>
+</ul>
+
+<p> FUNCIONOU </p>
